@@ -1,10 +1,11 @@
-const io = require("socket.io")(process.env.PORT || 3001, {
-    cors: {
-      // origin: "http://localhost:3000",
-      origin: "https://tune-and-talk.vercel.app",
-    },
-  });
-  
+const io = new Server(server, {
+  cors: {
+    origin: ['https://tune-and-talk.vercel.app'],
+    methods: ['GET', 'POST']
+  }
+});
+
+ 
   let roomVideoState = {};  // Store the current video state per room
   let roomMessages = {};  // Store the messages per room
   
