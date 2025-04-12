@@ -5,8 +5,10 @@ import { io } from "socket.io-client";
 import { v4 as uuidv4 } from "uuid";
 
 const ChatRoom = ({ roomId }) => {
-      const socket = useMemo(() => io("https://tune-and-talk.vercel.app"), []);
+     // const socket = useMemo(() => io("https://tune-and-talk.vercel.app"), []);
     // const socket = useMemo(() => io("http://localhost:3001"), []);
+    const socket = io(process.env.NEXT_PUBLIC_SOCKET_URL);
+
     const [message, setMessage] = useState("");
     const [chat, setChat] = useState([]);
     const [userId, setUserId] = useState("");
